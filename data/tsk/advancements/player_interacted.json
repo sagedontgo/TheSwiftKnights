@@ -27,7 +27,7 @@
       }
     },
     "rewards": {
-      "function": "tsk:check_for"
+      "function": "tsk:right_click"
     }
   }
   
