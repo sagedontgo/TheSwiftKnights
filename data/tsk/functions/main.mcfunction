@@ -40,6 +40,10 @@ execute as @a[scores={tsk.ultRegenerate=1..}] run function tsk:stats/ult_percent
 execute as @a if score @s tsk.ultPercentageMax < @s tsk.ultPercentage run scoreboard players operation @s tsk.ultPercentage = @s tsk.ultPercentageMax
 execute as @a[tag=!tsk.ultFullMsgSent,scores={tsk.ultPercentage=100..}] run function tsk:stats/ult_recharged
 
+# Combat
+execute as @a[scores={tsk.leftClick=4..}] run scoreboard players reset @s tsk.leftClick
+execute as @a[scores={tsk.rightClick=4..}] run scoreboard players reset @s tsk.rightClick
+
 # The Taylor Swift Knight (namespace: debut_knight)
 execute as @a[tag=knight1,scores={tsk.leftClick=3..}] at @s run function tsk:debut_knight/primary_attack/primary_attack
 execute as @e[tag=knight1_ability1,type=area_effect_cloud] at @s run function tsk:debut_knight/primary_attack/area_effect_cloud
@@ -48,6 +52,12 @@ execute as @a[tag=knight1,scores={tsk.leftClick=2,tsk.rightClick=1}] at @s run f
 execute as @a[tag=tsk.icefrozenground.invul] if score @s tsk.icefrozenground.timer matches 1.. run scoreboard players remove @s tsk.icefrozenground.timer 1
 execute as @a[tag=tsk.icefrozenground.invul] if score @s tsk.icefrozenground.timer matches ..1 run tag @s remove tsk.icefrozenground.invul
 
-execute as @a[tag=knight1,scores={tsk.rightClick=3..}] at @s run function tsk:debut_knight/primary_defense
-execute as @a[tag=knight1,scores={tsk.rightClick=2,tsk.leftClick=1}] at @s run function tsk:debut_knight/secondary_defense
-execute as @a[tag=knight1,predicate=tsk:sneaking,scores={tsk.leftClick=1..}] at @s run function tsk:debut_knight/ultimate
+execute as @a[tag=knight1,scores={tsk.rightClick=3..}] at @s run function tsk:debut_knight/primary_defense/primary_defense
+execute as @a[tag=knight1,scores={tsk.rightClick=2,tsk.leftClick=1}] at @s run function tsk:debut_knight/secondary_defense/secondary_defense
+execute as @a[tag=tsk.mermaidssong] if score @s tsk.mermaidssong.timer matches 1.. run scoreboard players remove @s tsk.mermaidssong.timer 1
+execute as @a[tag=tsk.mermaidssong] if score @s tsk.mermaidssong.timer matches ..2 run team leave @s
+execute as @a[tag=tsk.mermaidssong] if score @s tsk.mermaidssong.timer matches ..1 run tag @s remove tsk.mermaidssong
+execute as @e[type=#tsk:attackable,type=!player] run team join tsk.hostiles
+
+execute as @a[tag=knight1,predicate=tsk:sneaking,scores={tsk.leftClick=1..}] at @s run function tsk:debut_knight/ultimate/ultimate
+execute as @e[type=arrow,tag=tsk.halleyscomet.comet,nbt={inGround:1b}] at @s run function tsk:debut_knight/ultimate/comet_land 

@@ -27,3 +27,8 @@ scoreboard objectives add tsk.raySuccess dummy
 
 # Timer for each abilities to prevent conflicts i think
 scoreboard objectives add tsk.icefrozenground.timer dummy
+scoreboard objectives add tsk.mermaidssong.timer dummy
+
+team add tsk.hostiles
+team modify tsk.hostiles seeFriendlyInvisibles false
+team modify tsk.hostiles friendlyFire false

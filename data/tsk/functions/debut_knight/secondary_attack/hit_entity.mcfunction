@@ -1,4 +1,4 @@
-execute as @e[type=#tsk:attackable,distance=..2,tag=!tsk.icefrozenground.invul] at @s run damage @s 5 tsk:debut_knight/secondary_attack
+execute as @e[type=#tsk:attackable,distance=..2,tag=!tsk.icefrozenground.invul] at @s run damage @s 3 tsk:debut_knight/secondary_attack
 execute at @s run effect give @e[type=#tsk:attackable,distance=..2,tag=!tsk.icefrozenground.invul] slowness 3 2 false 
 execute at @s run effect give @e[type=#tsk:attackable,distance=..2,tag=!tsk.icefrozenground.invul] blindness 3 2 false 
 
