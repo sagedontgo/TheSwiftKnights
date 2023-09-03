@@ -1,5 +1,5 @@
 summon area_effect_cloud ~ ~ ~ {Particle:"dripping_water",ReapplicationDelay:20,Radius:3f,RadiusPerTick:0.2f,Duration:100,Tags:["knight1_ability1"]}
-execute as @e[sort=nearest,limit=1,type=area_effect_cloud,tag=knight1_ability1] at @s run scoreboard players operation @s tsk.id = @p tsk.id
+execute as @e[sort=nearest,limit=1,type=area_effect_cloud,tag=knight1_ability1,scores={tsk.id=..0}] at @s run scoreboard players operation @s tsk.id = @p tsk.id
 playsound minecraft:entity.boat.paddle_water block @a[distance=..23] ~ ~ ~ 100 0
 
 scoreboard players set @s tsk.actionbarSwitch 50

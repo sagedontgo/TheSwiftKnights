@@ -27,7 +27,7 @@
       }
     },
     "rewards": {
-      "function": "tsk:left_click"
+      "function": "tsk:combat/left_click"
     }
   }
   

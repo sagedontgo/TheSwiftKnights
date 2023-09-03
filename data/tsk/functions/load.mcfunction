@@ -21,3 +21,9 @@ scoreboard objectives add tsk.levelProgress dummy
 scoreboard objectives add tsk.rolledLevelProgress dummy
 
 scoreboard objectives add tsk.id dummy
+
+scoreboard objectives add tsk.raySteps dummy
+scoreboard objectives add tsk.raySuccess dummy
+
+# Timer for each abilities to prevent conflicts i think
+scoreboard objectives add tsk.icefrozenground.timer dummy
