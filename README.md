@@ -42,11 +42,11 @@ To upgrade, players must craft the "Era Amulet", which will automatically unlock
 **Knight Stats**
 - Strength
 
-   - Base damage for every attack. For every 2 Strength Points, +1 damage. Max of 20 points, meaning a max of 10 damage.
+   - Base damage for every attack. For every 1 Strength Point, +1 damage. Max of 20 points, meaning a max of 20 damage.
 
 - Dexterity
 
-   - Dexterity increases the chance of an increase in damage. A dexterity score of 5 means a 50% chance of an increase in damage. Also affects loot luck and the possibility of gaining effects when killing entities.
+   - Dexterity increases the chance of an increase in damage. A dexterity score of 1 means a 10% chance of an increase in damage. Also affects loot luck and the possibility of gaining effects when killing entities. Max of 8 points, with a max of 80% chance of an increase in damage.
 
 - Magic
 
