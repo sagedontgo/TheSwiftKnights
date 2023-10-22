@@ -42,15 +42,15 @@ To upgrade, players must craft the "Era Amulet", which will automatically unlock
 **Knight Stats**
 - Strength
 
- *- Is the base damage for every attack. 
+   - Base damage for every attack. For every 3 Strength Points, +1 damage. Max of 39 points, meaning a max of 13 damage.
 
 - Dexterity
 
- *- Lower dexterity increases chance of attack not activating at all. 
+   - Dexterity increases the chance of an increase in damage. A dexterity score of 5 means a 50% chance of an increase in damage. Also affects loot luck and the possibility of gaining effects when killing entities.
 
 - Magic
 
- *- Defines the rate in which your mana regenerates and how much per. For example, magic of 4 regenerates every 2 seconds, which is calculated by `m / 2`. Magic of 4 regenerates 12 mana, calculated by `m * 3`
+   - Defines the rate in which your mana regenerates and how much per. For example, magic of 4 regenerates every 2 seconds, which is calculated by `m / 2`. Magic of 4 regenerates 12 mana, calculated by `m * 3`
 
 - Wisdom
 
