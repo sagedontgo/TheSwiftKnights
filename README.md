@@ -46,7 +46,7 @@ To upgrade, players must craft the "Era Amulet", which will automatically unlock
 
 - Dexterity
 
-   - Dexterity increases the chance of an increase in damage. A dexterity score of 1 means a 10% chance of an increase in damage. Also affects loot luck and the possibility of gaining effects when killing entities. Max of 8 points, with a max of 80% chance of an increase in damage.
+   - Dexterity increases the chance of an increase in damage. A dexterity score of 1 means a 5% chance of an increase in damage. Also affects loot luck and the possibility of gaining effects when killing entities. Max of 20 points, with a max of 80% chance of an increase in damage. 
 
 - Magic
 
