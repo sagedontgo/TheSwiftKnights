@@ -42,7 +42,7 @@ To upgrade, players must craft the "Era Amulet", which will automatically unlock
 **Knight Stats**
 - Strength
 
-   - Base damage for every attack. For every 3 Strength Points, +1 damage. Max of 39 points, meaning a max of 13 damage.
+   - Base damage for every attack. For every 2 Strength Points, +1 damage. Max of 20 points, meaning a max of 10 damage.
 
 - Dexterity
 
