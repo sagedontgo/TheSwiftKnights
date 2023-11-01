@@ -40,25 +40,25 @@ To upgrade, players must craft the "Era Amulet", which will automatically unlock
 - Witch (evermore, Midnights)
 
 **Knight Stats**
-- Strength
+- Strength (1-20)
 
    - Base damage for every attack. For every 1 Strength Point, +1 damage. Max of 20 points, meaning a max of 20 damage.
 
-- Dexterity
+- Dexterity (1-100)
 
-   - Dexterity increases the chance of an increase in damage. A dexterity score of 1 means a 5% chance of an increase in damage. Also affects loot luck and the possibility of gaining effects when killing entities. Max of 20 points, with a max of 80% chance of an increase in damage. 
+   - Dexterity reduces the chance of a spell breaking when cast. When this is 0, all spells will break when cast. When this is 100, no spells will break. When this is a range of 2-99, then there is a chance `n` of the spell not breaking.
 
-- Magic
+- Magic (1-20)
 
    - Defines the rate in which your mana regenerates and how much per. For example, magic of 4 regenerates every 2 seconds, which is calculated by `m / 2`. Magic of 4 regenerates 12 mana, calculated by `m * 3`
 
-- Wisdom
+- Wisdom (1-250)
 
  *- Defines the amount of mana you have. Calculated with `(w * 100) / 2.5`
 
-- Constitution
+- Constitution (1-20)
 
- *- Defines the amount of extra hearts you have, calculated by ` c / 2` and also defines the level of which you get potion effects in, calculated by `c % 5`, with the remainder defining the level.
+ *- Defines the amount of extra hearts you have.
 
 
  
