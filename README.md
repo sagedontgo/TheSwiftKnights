@@ -1,4 +1,4 @@
-![image](https://github.com/swiftiessmp/TheSwiftKnights/assets/128224719/6bab28b3-18bc-4c27-8d5c-63baf2f908b9)# The Swift Knights
+# The Swift Knights
 [Discord](http://discord.swiftiessmp.gay)
 
 ### THE BASICS
