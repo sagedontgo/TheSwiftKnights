@@ -10,7 +10,7 @@ The Taylor Swift Knight ("Harmonia")
 <br>
 The Fearless Knight ("Valerie")
 <br><br>
-Each knight has unique Melodies (abilities) of the following types: Riffs (attack), Shields (defense), Traits (passive), Anthems (ultimate), and Tricks (utility). 
+Each knight has unique Harmonies (abilities) of the following types: Riffs (attack), Shields (defense), Traits (passive), Anthems (ultimate), and Tricks (utility). 
 The attack & defense ability types are split into two: **Charms (cantrip)** and **Echoes (spell)** abilities. 
 
 **Charms** - These abilities can be cast at will at the cost of Melodies (mana).
