@@ -1,0 +1,32 @@
+{
+    "values":
+    [
+        "minecraft:blaze",
+        "minecraft:bogged",
+        "minecraft:camel",
+        "minecraft:cave_spider",
+        "minecraft:dolphin",
+        "minecraft:drowned",
+        "minecraft:ghast",
+        "minecraft:guardian",
+        "minecraft:horse",
+        "minecraft:husk",
+        "minecraft:iron_golem",
+        "minecraft:phantom",
+        "minecraft:piglin",
+        "minecraft:pillager",
+        "minecraft:sniffer",
+        "minecraft:skeleton",
+        "minecraft:skeleton_horse",
+        "minecraft:spider",
+        "minecraft:stray",
+        "minecraft:strider",
+        "minecraft:villager",
+        "minecraft:wandering_trader",
+        "minecraft:zombie",
+        "minecraft:zombie_horse",
+        "minecraft:zombie_villager",
+        "minecraft:zombified_piglin"
+        
+    ]
+}

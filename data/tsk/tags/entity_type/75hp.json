@@ -1,0 +1,22 @@
+{
+    "values":
+    [
+        "minecraft:donkey",
+        "minecraft:cat",
+        "minecraft:creeper",
+        "minecraft:glow_squid",
+        "minecraft:goat",
+        "minecraft:llama",
+        "minecraft:magma_cube",
+        "minecraft:mooshroom",
+        "minecraft:mule",
+        "minecraft:ocelot",
+        "minecraft:shulker",
+        "minecraft:slime",
+        "minecraft:squid",
+        "minecraft:trader_llama",
+        "minecraft:turtle",
+        "minecraft:wolf"
+        
+    ]
+}

@@ -1,0 +1,17 @@
+[
+    {
+      "function": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+        {
+          "translate": "tsk.text.rarity.epic",
+          "color": "dark_purple",
+          "bold": true,
+          "italic": true
+        }
+      ],
+      "mode": "insert",
+      "offset": 0
+    }
+  ]
+  

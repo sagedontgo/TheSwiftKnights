@@ -1,0 +1,23 @@
+[
+    {
+      "function": "minecraft:set_lore",
+      "entity": "this",
+      "lore": [
+
+        {
+          "text": "+15 HP ❤",
+          "color": "red",
+          "bold": false,
+          "italic": false
+        },
+        {
+          "text": "+3 Fullness 🍖",
+          "color": "gold",
+          "bold": false,
+          "italic": false
+        }
+      ],
+      "mode": "append"
+    }
+  ]
+  

@@ -1,0 +1,16 @@
+{
+    "criteria": {
+      "requirement": {
+        "trigger": "minecraft:consume_item",
+        "conditions": {
+          "item": {
+            "items": "#tsk:4_hunger_points"
+          }
+        }
+      }
+    },
+    "rewards": {
+      "function": "tsk:hp/hunger/4_hunger_points"
+    }
+  }
+  

@@ -1,0 +1,21 @@
+[
+	{
+		"function": "minecraft:set_lore",
+		"entity": "this",
+		"lore": [
+            {"translate":"tsk.ability_type.riff","italic":false,"color":"gold"}
+            ,{"translate":"tsk.knight1.ability_name.high_tide","italic":false,"color":"gold"}
+            ,{"translate":"tsk.knight1.ability_desc.high_tide.1","italic":false,"color":"white"}
+			,{"translate":"tsk.knight1.ability_desc.high_tide.2","italic":false,"color":"white"}
+			,{"translate":" "}
+		],
+
+	"mode": "replace_section",
+    "offset": 3,
+    "size": 5
+	},
+	{
+		"function": "minecraft:set_custom_data",
+		"tag": "{tskRiffAbility:highTide}"
+	}
+]

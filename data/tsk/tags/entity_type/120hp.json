@@ -1,0 +1,19 @@
+{
+    "values":
+    [
+        "minecraft:breeze",
+        "minecraft:elder_guardian",
+        "minecraft:enderman",
+        "minecraft:evoker",
+        "minecraft:giant",
+        "minecraft:hoglin",
+        "minecraft:illusioner",
+        "minecraft:panda",
+        "minecraft:polar_bear",
+        "minecraft:vindicator",
+        "minecraft:witch",
+        "minecraft:wither_skeleton",
+        "minecraft:zoglin"
+ 
+    ]
+}
