@@ -7,7 +7,7 @@
 <br>
 <br>
 ## Introduction
-Delve into the world of **worldname** and learn the story of 11 formidable Knights. Traverse through the world and strive to continue their legacies. Stun enemies with a captivating combat system, and refresh your playstyle with abilities cast from powerful staffs.
+Delve into the world of **Eraheim** and learn the story of 11 formidable Knights. Traverse through the world and strive to continue their legacies. Stun enemies with a captivating combat system, and refresh your playstyle with abilities cast from powerful staffs.
 <br>
 <br>
 ### Meet the Characters!
@@ -46,6 +46,12 @@ Find out how different elements interact with each other when both are present o
 - Use **grimoires** to apply Spells to a Staff.
 - Be careful of your usage! Spells need Mana to be used.
 - Don't use it too much! Mana will burn out if used too much in a short period of time.
+
+### Stats
+HP - Your health!
+Defense - Reduces the amount of damage you take.
+Fullness - When maxed, you can no longer eat Food for the next minute. 
+Mana - The energy needed by a Staff to cast a spell.
 
 ## Getting Started 
 ### Installation
