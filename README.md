@@ -3,7 +3,7 @@
 </p>
 
 ***
-***NOTE:*** *The Swift Knights is maintained by one developer. I have no assistance in terms of the code and direction. Please excuse bad, choppy, or inefficient code! Please feel free to submit Pull Requests which may improve the datapacks performance.*
+***NOTE:*** *The Swift Knights is maintained by one developer. I have no assistance in terms of the code and direction. Please excuse bad, choppy, or inefficient code! Please feel free to submit Pull Requests which may improve the datapacks performance. This datapack has NOT yet come out, and the code uploaded here is for tracking purposes only.*
 <br>
 <br>
 ## Introduction
