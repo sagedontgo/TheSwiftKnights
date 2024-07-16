@@ -33,6 +33,8 @@ Find out how different elements interact with each other when both are present o
   * Freezes caught enemies in place and deals additional Frost DMG.
 * **Earth + Water** = **Quicksand**
   * Softens the nearby ground, sucking down enemies and slowing their movement speed, and deals additional Suffocation DMG.
+* **Earth + Fire** = **Magma Flow**
+  * Melts the nearby ground, melting nearby rock into lava and heating up other blocks into magma.
 * **Fire + Water**  = **Steam Burst**
   * Reduces visibility and deals additional Scald DMG to enemies.
 
