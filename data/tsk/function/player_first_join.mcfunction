@@ -12,6 +12,10 @@ scoreboard players set @s tsk.mana 100
 scoreboard players set @s tsk.manaMax 100
 scoreboard players set @s tsk.manaRegenRate 5
 scoreboard players set @s tsk.manaRegenTimer.stat 35
-scoreboard players set @s tsk.level 0
-scoreboard players set @s tsk.levelXp 0
-scoreboard players set @s tsk.levelXpRequired 375
+scoreboard players set @s tsk.critRate 12
+scoreboard players set @s tsk.critDamage 18
+scoreboard players set @s tsk.str 10
+scoreboard players set @s tsk.strBackup 10
+scoreboard players set @s tsk.dexterity 5
+scoreboard players set $level tsk.worldLevel 1
+

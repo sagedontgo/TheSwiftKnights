@@ -26,7 +26,10 @@
         "minecraft:zombie",
         "minecraft:zombie_horse",
         "minecraft:zombie_villager",
-        "minecraft:zombified_piglin"
+        "minecraft:zombified_piglin",
+        "minecraft:breeze",
+        "minecraft:elder_guardian",
+        "minecraft:enderman"
         
     ]
 }

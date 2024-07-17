@@ -1,2 +1,2 @@
-tag @s remove tsk.wet
-say I'm not wet!
+tag @s remove tsk.water
+scoreboard players reset @s tsk.elementTimer.water

@@ -1,0 +1,16 @@
+{
+    "values":
+    [
+        "minecraft:stone",
+        "minecraft:deepslate",
+        "minecraft:granite",
+        "minecraft:andesite",
+        "minecraft:diorite",
+        "minecraft:calcite",
+        "minecraft:tuff",
+        "minecraft:deepslate",
+        "minecraft:prismarine",
+        "minecraft:cobblestone",
+        "minecraft:cobbled_deepslate"
+    ]
+}

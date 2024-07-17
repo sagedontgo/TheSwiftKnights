@@ -35,7 +35,7 @@ execute as @a[nbt=!{active_effects:[{id:"minecraft:resistance"}]}] run effect gi
 execute as @e[scores={tsk.preCalDamageTaken=1..}] as @s run function tsk:hp/calc_dmg_taken
 execute as @e[scores={tsk.preCalDamageDealt=1..}] as @s run function tsk:hp/calc_dmg_dealt
 
-execute as @e[type=#tsk:all,tag=!tsk.healed] run function tsk:hp/mobs
+execute as @e[type=#tsk:all,tag=!tsk.healed] run function tsk:hp/mobs/mobs
 
 execute as @a store result score @s tsk.hpDiff run scoreboard players operation @s tsk.lastTickHp -= @s tsk.hp
 execute as @e[scores={tsk.hpDiff=1..}] store result score @s tsk.hpDiffStorage run scoreboard players get @s tsk.hpDiff
@@ -98,7 +98,6 @@ execute as @e[scores={tsk.regenDuration=1..},tag=!tsk.regenTimerStarted] as @s r
 execute as @e[scores={tsk.secondsClock=1..},tag=tsk.hasRegeneration] if score @s tsk.secondsClock matches 1.. as @s run scoreboard players remove @s tsk.secondsClock 1
 execute as @e[scores={tsk.secondsClock=1..},tag=tsk.hasRegeneration] if score @s tsk.secondsClock matches ..1 as @s run function tsk:hp/potion/regen/regenerate
 
-
 # Absorption
 execute as @a[nbt={active_effects:[{id:"minecraft:absorption"}]},tag=!tsk.hasAbsorption] run function tsk:hp/absorption/equip
 execute as @a[scores={tsk.absorptionDuration=1..},tag=tsk.hasAbsorption] run scoreboard players remove @s tsk.absorptionDuration 1
@@ -113,7 +112,7 @@ execute as @a[tag=tsk.regeneratingMana] if score @s tsk.mana >= @s tsk.manaMax r
 
 # Combat
 execute as @a[tag=tsk.dashReady] at @s if predicate tsk:is_sneaking run function tsk:combat/dash
-execute as @a[tag=tsk.jumped] if score @s tsk.jumpCount matches 1.. if predicate tsk:is_on_ground at @s run execute as @e[sort=nearest,distance=0.01..3] at @s run function tsk:combat/jump_hit
+execute as @a[tag=tsk.jumped] if score @s tsk.jumpCount matches 1.. if predicate tsk:is_on_ground at @s as @e[sort=nearest,distance=0.01..3] at @s run function tsk:combat/jump_hit with storage tsk:attribute attribute
 execute as @a[tag=tsk.jumped] if score @s tsk.jumpCount matches 1.. if predicate tsk:is_on_ground at @s run function tsk:combat/used_jump
 execute as @a[tag=!tsk.jumped,scores={tsk.jumpCount=1..}] run scoreboard players reset @s tsk.jumpCount
 execute as @a store success score @s tsk.dashReady run execute if entity @s[tag=tsk.dashReady]
@@ -121,9 +120,93 @@ execute as @a store success score @s tsk.jumpReady run execute if entity @s[tag=
 
 # Elemental Reactions
 
-# Apply
-execute as @e[type=!#tsk:exclude,tag=!tsk.fire] if predicate tsk:elements/fire at @s run function tsk:elements/apply/fire
-execute as @e[type=!#tsk:exclude,tag=tsk.fire] unless predicate tsk:elements/fire at @s run function tsk:elements/remove/fire
 
-execute as @e[type=!#tsk:exclude,tag=!tsk.wet] at @s if predicate tsk:elements/water run function tsk:elements/apply/water
-execute as @e[type=!#tsk:exclude,tag=tsk.wet] at @s unless predicate tsk:elements/water run function tsk:elements/remove/water
+# Apply
+execute as @e[type=!#tsk:exclude] if predicate tsk:elements/fire at @s run function tsk:elements/apply/fire
+execute as @e[type=!#tsk:exclude] at @s if predicate tsk:elements/water run function tsk:elements/apply/water
+execute as @e[type=!#tsk:exclude,tag=!tsk.air] at @s if entity @s[advancements={tsk:combat/hit_by_wind_charge=true}] run function tsk:elements/apply/air
+# execute as @e[type=!#tsk:exclude,tag=!tsk.ice] at @s run function tsk:elements/apply/ice
+# execute as @e[type=!#tsk:exclude,tag=!tsk.earth] at @s run function tsk:elements/apply/earth
+
+execute as @e store success score @s tsk.elementIsActive.air run execute if entity @s[tag=tsk.air]
+execute as @e store success score @s tsk.elementIsActive.water run execute if entity @s[tag=tsk.water]
+execute as @e store success score @s tsk.elementIsActive.fire run execute if entity @s[tag=tsk.fire]
+execute as @e store success score @s tsk.elementIsActive.earth run execute if entity @s[tag=tsk.earth]
+execute as @e store success score @s tsk.elementIsActive.ice run execute if entity @s[tag=tsk.ice]
+
+execute as @e[tag=tsk.air,scores={tsk.elementTimer.air=1..}] run scoreboard players remove @s tsk.elementTimer.air 1
+execute as @e[tag=tsk.earth,scores={tsk.elementTimer.earth=1..}] run scoreboard players remove @s tsk.elementTimer.earth 1
+execute as @e[tag=tsk.fire,scores={tsk.elementTimer.fire=1..}] run scoreboard players remove @s tsk.elementTimer.fire 1
+execute as @e[tag=tsk.ice,scores={tsk.elementTimer.ice=1..}] run scoreboard players remove @s tsk.elementTimer.ice 1
+execute as @e[tag=tsk.water,scores={tsk.elementTimer.water=1..}] run scoreboard players remove @s tsk.elementTimer.water 1
+
+execute as @e[tag=tsk.air,scores={tsk.elementTimer.air=..1}] run function tsk:elements/remove/air
+execute as @e[tag=tsk.earth,scores={tsk.elementTimer.earth=..1}] run function tsk:elements/remove/earth
+execute as @e[tag=tsk.fire,scores={tsk.elementTimer.fire=..1}] run function tsk:elements/remove/fire
+execute as @e[tag=tsk.ice,scores={tsk.elementTimer.ice=..1}] run function tsk:elements/remove/ice
+execute as @e[tag=tsk.water,scores={tsk.elementTimer.water=..1}] run function tsk:elements/remove/water
+
+# Reactions
+
+execute as @e[tag=tsk.air,tag=tsk.ice] at @s run function tsk:elements/reactions/blizzard
+execute as @e[tag=tsk.air,tag=tsk.earth] at @s run function tsk:elements/reactions/dust_storm
+execute as @e[tag=tsk.air,tag=tsk.fire] at @s run function tsk:elements/reactions/wildfire
+execute as @e[type=minecraft:armor_stand,tag=tsk.reactionEntity.wildfire_move] at @s run function tsk:elements/particles/wildfire_move
+execute as @e[type=minecraft:armor_stand,tag=tsk.reactionEntity.wildfire_rotate] at @s run function tsk:elements/particles/wildfire_rotate
+execute as @e[type=minecraft:armor_stand,tag=tsk.reactionEntity.wildfire] if score @s tsk.reactionTimer.wildfire matches 1.. run scoreboard players remove @s tsk.reactionTimer.wildfire 1
+execute as @e[type=minecraft:armor_stand,tag=tsk.reactionEntity.wildfire] if score @s tsk.reactionTimer.wildfire matches ..1 run kill @s
+execute as @e[tag=tsk.air,tag=tsk.water] at @s run function tsk:elements/reactions/storm
+
+execute as @e[tag=tsk.ice,tag=tsk.earth] at @s run function tsk:elements/reactions/permafrost
+execute as @e[tag=tsk.ice,tag=tsk.fire] at @s run function tsk:elements/reactions/melt
+execute as @e[tag=tsk.ice,tag=tsk.water] at @s run function tsk:elements/reactions/freeze
+
+execute as @e[tag=tsk.earth,tag=tsk.fire] at @s run function tsk:elements/reactions/magma_flow
+execute as @e[tag=tsk.earth,tag=tsk.water] at @s run function tsk:elements/reactions/quicksand
+
+execute as @e[tag=tsk.fire,tag=tsk.water] at @s run function tsk:elements/reactions/scalding_mist
+
+
+# Timer
+execute as @e[tag=tsk.blizzard,scores={tsk.reactionTimer.blizzard=1..}] run scoreboard players remove @s tsk.reactionTimer.blizzard 1
+execute as @e[tag=tsk.blizzard,scores={tsk.reactionTimer.blizzard=..1}] run tag @s remove tsk.blizzard
+
+execute as @e[tag=tsk.freeze,scores={tsk.reactionTimer.freeze=1..}] run scoreboard players remove @s tsk.reactionTimer.freeze 1
+execute as @e[tag=tsk.freeze,scores={tsk.reactionTimer.freeze=..1}] run function tsk:elements/remove/reactions/freeze
+
+execute as @e[tag=tsk.quicksand,scores={tsk.reactionTimer.quicksand=1..}] run scoreboard players remove @s tsk.reactionTimer.quicksand 1
+execute as @e[tag=tsk.quicksand,scores={tsk.reactionTimer.quicksand=..1}] run function tsk:elements/remove/reactions/quicksand
+
+execute as @e[tag=tsk.dust_storm,scores={tsk.reactionTimer.dust_storm=1..}] run scoreboard players remove @s tsk.reactionTimer.dust_storm 1
+execute as @e[tag=tsk.dust_storm,scores={tsk.reactionTimer.dust_storm=..1}] run tag @s remove tsk.dust_storm
+
+execute as @e[tag=tsk.magma_flow,scores={tsk.reactionTimer.magma_flow=1..}] run scoreboard players remove @s tsk.reactionTimer.magma_flow 1
+execute as @e[tag=tsk.magma_flow,scores={tsk.reactionTimer.magma_flow=..1}] run tag @s remove tsk.magma_flow
+
+execute as @e[tag=tsk.melt,scores={tsk.reactionTimer.melt=1..}] run scoreboard players remove @s tsk.reactionTimer.melt 1
+execute as @e[tag=tsk.melt,scores={tsk.reactionTimer.melt=..1}] run tag @s remove tsk.melt
+
+execute as @e[tag=tsk.permafrost,scores={tsk.reactionTimer.permafrost=1..}] run scoreboard players remove @s tsk.reactionTimer.permafrost 1
+execute as @e[tag=tsk.permafrost,scores={tsk.reactionTimer.permafrost=..1}] run tag @s remove tsk.permafrost
+
+execute as @e[tag=tsk.quicksand,scores={tsk.reactionTimer.quicksand=1..}] run scoreboard players remove @s tsk.reactionTimer.quicksand 1
+execute as @e[tag=tsk.quicksand,scores={tsk.reactionTimer.quicksand=..1}] run tag @s remove tsk.quicksand
+
+execute as @e[tag=tsk.scalding_mist,scores={tsk.reactionTimer.scalding_mist=1..}] run scoreboard players remove @s tsk.reactionTimer.scalding_mist 1
+execute as @e[tag=tsk.scalding_mist,scores={tsk.reactionTimer.scalding_mist=..1}] run tag @s remove tsk.scalding_mist
+
+execute as @e[tag=tsk.storm,scores={tsk.reactionTimer.storm=1..}] run scoreboard players remove @s tsk.reactionTimer.storm 1
+execute as @e[tag=tsk.storm,scores={tsk.reactionTimer.storm=..1}] run tag @s remove tsk.storm
+
+execute as @e[tag=tsk.wildfire,scores={tsk.reactionTimer.wildfire=1..}] run scoreboard players remove @s tsk.reactionTimer.wildfire 1
+execute as @e[tag=tsk.wildfire,scores={tsk.reactionTimer.wildfire=..1}] run tag @s remove tsk.wildfire
+
+
+
+execute as @e[type=text_display,tag=tsk.reactionIndicator] as @s unless score @s tsk.indicatorTimer matches 1.. run kill @s
+execute as @e[type=text_display,tag=tsk.reactionIndicator] as @s if score @s tsk.indicatorTimer matches 1.. run scoreboard players remove @s tsk.indicatorTimer 1
+execute as @e[type=text_display,tag=tsk.reactionIndicator] as @s at @s if score @s tsk.indicatorTimer matches 18..20 run function tsk:elements/particles/end_reaction_text
+
+# Strength
+execute as @a at @s run function tsk:strength/calc_new_dmg
+execute as @a[advancements={tsk:crit/entity_hit=true},tag=tsk.hitCrit] at @s run function tsk:crit/reset

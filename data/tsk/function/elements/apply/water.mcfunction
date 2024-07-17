@@ -1,2 +1,2 @@
-tag @s add tsk.wet
-say I'm wet!!
+tag @s add tsk.water
+scoreboard players set @s tsk.elementTimer.water 200

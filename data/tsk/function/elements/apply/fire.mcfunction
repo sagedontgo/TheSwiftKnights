@@ -1,2 +1,2 @@
 tag @s add tsk.fire
-say I'm on Fire!!
+scoreboard players set @s tsk.elementTimer.fire 200
