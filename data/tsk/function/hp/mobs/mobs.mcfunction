@@ -1,3 +1,12 @@
+execute as @s store result score @s tsk.mobLevel if score $level tsk.worldLevel matches 1 run random value 1..36
+# execute as @s store result score @s tsk.mobLevel if score $level tsk.worldLevel matches 2 run random value 9..39
+# execute as @s store result score @s tsk.mobLevel if score $level tsk.worldLevel matches 3 run random value 20..40
+# execute as @s store result score @s tsk.mobLevel if score $level tsk.worldLevel matches 4 run random value 31..51
+# execute as @s store result score @s tsk.mobLevel if score $level tsk.worldLevel matches 5 run random value 42..62
+# execute as @s store result score @s tsk.mobLevel if score $level tsk.worldLevel matches 6 run random value 53..73
+# execute as @s store result score @s tsk.mobLevel if score $level tsk.worldLevel matches 7 run random value 64..84
+# execute as @s store result score @s tsk.mobLevel if score $level tsk.worldLevel matches 8 run random value 72..92
+# execute as @s store result score @s tsk.mobLevel if score $level tsk.worldLevel matches 8 run random value 76..98
 
 execute as @s if entity @s[type=#tsk:tiers/tier1] run function tsk:hp/mobs/calculations/tier1
 execute as @s if entity @s[type=#tsk:tiers/tier2] run function tsk:hp/mobs/calculations/tier2

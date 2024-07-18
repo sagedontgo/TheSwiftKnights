@@ -54,6 +54,8 @@ execute as @e[type=#tsk:all,scores={tsk.healthDisplayTimer=..1}] if entity @s[ta
 
 execute as @e[type=text_display,tag=tsk.dmgIndicator] as @s unless score @s tsk.indicatorTimer matches 1.. run kill @s
 execute as @e[type=text_display,tag=tsk.dmgIndicator] as @s if score @s tsk.indicatorTimer matches 1.. run scoreboard players remove @s tsk.indicatorTimer 1
+execute as @e[type=text_display,tag=tsk.hpIndicator] as @s unless score @s tsk.indicatorTimer matches 1.. run kill @s
+execute as @e[type=text_display,tag=tsk.hpIndicator] as @s if score @s tsk.indicatorTimer matches 1.. run scoreboard players remove @s tsk.indicatorTimer 1
 
 execute as @a[nbt={active_effects:[{id:"minecraft:health_boost",amplifier:100b}]}] run function tsk:hp/clear_aec
 
@@ -79,6 +81,7 @@ execute as @a[scores={tsk.digestionTimer=..1},tag=tsk.full] run function tsk:hp/
 
 # Death.
 execute as @a[scores={tsk.hp=..0}] at @s run function tsk:hp/death
+execute as @e[type=text_display,tag=tsk.hpIndicator] unless predicate tsk:hp_display_riding run kill @s
 execute as @e[type=#tsk:all,scores={tsk.hp=..0}] at @s run function tsk:hp/mob_death
 
 # Potions

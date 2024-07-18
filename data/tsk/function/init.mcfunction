@@ -52,6 +52,8 @@ scoreboard objectives add tsk.levelXpRequired dummy
 scoreboard objectives add tsk.worldLevel dummy
 scoreboard players set $level tsk.worldLevel 1
 
+scoreboard objectives add tsk.mobLevel dummy
+
 # COMBAT
 scoreboard objectives add tsk.hitCount dummy
 scoreboard objectives add tsk.combatTimer dummy
@@ -85,12 +87,13 @@ scoreboard objectives add tsk.elementIsActive.ice dummy
 scoreboard objectives add tsk.elementIsActive.water dummy
 
 # VARIABLES
-
 ## INTEGERS
 scoreboard objectives add tsk.int dummy
 scoreboard players set $1 tsk.int 1
+scoreboard players set $2 tsk.int 2
 scoreboard players set $4 tsk.int 4
 scoreboard players set $10 tsk.int 10
+scoreboard players set $20 tsk.int 20
 scoreboard players set $100 tsk.int 100
 scoreboard players set $1000 tsk.int 1000
 scoreboard players set $10000 tsk.int 10000
