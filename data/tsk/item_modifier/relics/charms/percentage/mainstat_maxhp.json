@@ -1,0 +1,36 @@
+[
+	{
+		"function": "minecraft:set_lore",
+		"entity": "this",
+		"lore": [
+			{
+				"text": "+",
+				"color":"white",
+				"extra": [
+					{
+						"score": {
+							"name": "$tsk.statBuffValue",
+							"objective": "tsk.randomVal"
+						},
+                        "color": "white"
+					},
+					{
+						"text": "% ",
+						"color": "white"
+					},
+					{
+						"text":"MAX HP",
+						"color":"red"
+					}
+				]
+			}
+		],
+		"mode": "replace_section",
+		"offset": 2,
+		"size": 1
+	},
+	{
+		"function": "minecraft:set_custom_data",
+		"tag": "{tsk:{artifactMainStat:\"maxHpPercentage\"},tsk:{item:\"relic\"},tsk:{artifactType:\"charm\"}}"
+	}
+]

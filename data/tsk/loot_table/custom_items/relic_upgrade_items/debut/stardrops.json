@@ -1,0 +1,104 @@
+{
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:popped_chorus_fruit",
+					"weight": 100,
+					"functions": [
+						{
+							"function": "minecraft:set_name",
+							"entity": "this",
+							"target": "item_name",
+							"name": {
+								"text": "Stardrops",
+								"color": "gold",
+								"italic": false
+							}
+						},
+						{
+							"function": "minecraft:set_lore",
+							"entity": "this",
+							"lore": [
+								{
+									"text": "\uEF1A",
+									"color": "white",
+									"italic": false,
+									"extra": [
+										{
+											"text": " Relic Upgrade Item",
+											"color": "dark_gray",
+											"italic": true
+										}
+									]
+								},
+								{
+									"text": "XP ",
+									"color": "aqua",
+									"italic": false,
+									"extra": [
+										{
+											"text": "500",
+											"color": "white",
+											"italic": false
+										}
+									]
+								},
+                                {
+									"text": "Upgrade Cost",
+									"color": "gold",
+									"italic": false,
+									"extra": [
+										{
+											"text": " 320",
+											"color": "white",
+											"italic": false
+										}
+									]
+								},
+								{
+									"text": ""
+								},
+								{
+									"text": "Mysterious stardrops. No one's sure what they are",
+									"color": "gray",
+									"italic": false
+								},
+                                {
+									"text": "how they got here, or how they were obtained",
+									"color": "gray",
+									"italic": false
+								},
+								{
+									"text": ""
+								},
+								{
+									"text": "\"I was 7 and you were 9",
+									"color": "dark_gray",
+									"italic": true
+								},
+								{
+									"text": "I looked at you like the stars that shined...\"",
+									"color": "dark_gray",
+									"italic": true
+								},
+								{
+									"text": "- Mary's Song (Oh My My My)",
+									"color": "dark_gray",
+									"italic": true
+								}
+							],
+							"mode": "replace_all"
+						},
+						{
+							"function": "minecraft:set_custom_data",
+							"tag": "{tsk:{item: \"upgradeItem\", upgradeXp: 500, upgradeCost: 320}}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

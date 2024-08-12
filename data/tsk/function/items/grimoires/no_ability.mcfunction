@@ -1,0 +1,1 @@
+give @s popped_chorus_fruit[custom_name='["",{"translate":"tsk.item_name.grimoire","italic":false,"color":"dark_aqua"}]',lore=['["",{"translate":"tsk.item_lore.grimoire.1.no_ability","color":"dark_gray"}]'],custom_data={tsk:{item:"grimoire",ability:"none"}},max_stack_size=1,custom_model_data=13001]

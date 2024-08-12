@@ -1,0 +1,99 @@
+{
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:popped_chorus_fruit",
+					"weight": 100,
+					"functions": [
+						{
+							"function": "minecraft:set_name",
+							"entity": "this",
+							"target": "item_name",
+							"name": {
+								"text": "Red Roses",
+								"color": "green",
+								"italic": false
+							}
+						},
+						{
+							"function": "minecraft:set_lore",
+							"entity": "this",
+							"lore": [
+								{
+									"text": "\uEF0D",
+									"color": "white",
+									"italic": false,
+									"extra": [
+										{
+											"text": " Relic Upgrade Item",
+											"color": "dark_gray",
+											"italic": true
+										}
+									]
+								},
+								{
+									"text": "XP ",
+									"color": "aqua",
+									"italic": false,
+									"extra": [
+										{
+											"text": "100",
+											"color": "white",
+											"italic": false
+										}
+									]
+								},
+                                {
+									"text": "Upgrade Cost",
+									"color": "gold",
+									"italic": false,
+									"extra": [
+										{
+											"text": " 200",
+											"color": "white",
+											"italic": false
+										}
+									]
+								},
+								{
+									"text": ""
+								},
+								{
+									"text": ":heart:",
+									"color": "gray",
+									"italic": false
+								},
+								{
+									"text": ""
+								},
+								{
+									"text": "\"I almost didn't notice all the roses",
+									"color": "dark_gray",
+									"italic": true
+								},
+								{
+									"text": "and the note that said...\"",
+									"color": "dark_gray",
+									"italic": true
+								},
+								{
+									"text": "- Our Song",
+									"color": "dark_gray",
+									"italic": true
+								}
+							],
+							"mode": "replace_all"
+						},
+						{
+							"function": "minecraft:set_custom_data",
+							"tag": "{tsk:{item: \"upgradeItem\", upgradeXp: 100, upgradeCost: 200}}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,21 @@
+[
+	{
+		"function": "minecraft:set_lore",
+		"entity": "this",
+		"lore": [
+            {"translate":"tsk.ability_type.anthem","italic":false,"color":"gold"}
+            ,{"translate":"tsk.knight1.ability_name.tsunami","italic":false,"color":"gold"}
+            ,{"translate":"tsk.knight1.ability_desc.tsunami.1","italic":false,"color":"white"}
+			,{"translate":"tsk.knight1.ability_desc.tsunami.2","italic":false,"color":"white"}
+			,{"translate":" "}
+		],
+
+	"mode": "replace_section",
+    "offset": 13,
+    "size": 5
+	},
+	{
+		"function": "minecraft:set_custom_data",
+		"tag": "{tskAnthemAbility:whirlpool}"
+	}
+]

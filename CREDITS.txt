@@ -1,0 +1,7 @@
+LIBRARIES USED:
+AjjMC / ajjgui (https://github.com/AjjMC/ajjgui)
+MulverineX / player_motion (https://github.com/MulverineX/player_motion)
+PuckiSilver / NoShadow (https://github.com/PuckiSilver/NoShadow)
+
+THE TEAM:
+sagedontgo - Project Lead, Lead Developer

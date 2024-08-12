@@ -1,55 +1,39 @@
 #> player_motion:internal/technical/load
-#   Sets up scores and teams
+# LOAD FUNCTION
 
-#Start schedule loops
-schedule function player_motion:internal/technical/tick 1t replace
+# STORAGE
+data modify storage player_motion:math unitvector set value [0.0d,0.0d,0.0d]
+data modify storage player_motion:math motion set value [0.0d,0.0d,0.0d]
+data modify storage player_motion:math pos set value [0.0d,0.0d,0.0d]
 
-# Definitions for Data-pack Helper Plus
-#declare storage player_motion:storage
+# TICK FUNCTION
+schedule function player_motion:internal/technical/tick 1t append
 
-#SCORES
+# SCORES
 scoreboard objectives add player_motion.api.launch dummy
-scoreboard objectives add player_motion.api.particle dummy
 scoreboard objectives add player_motion.internal.dummy dummy
-scoreboard objectives add player_motion.internal.gamemode dummy
-scoreboard objectives add player_motion.internal.invulnerable dummy
 scoreboard objectives add player_motion.internal.math dummy
-    scoreboard players set #constant.-1 player_motion.internal.math -1
-    scoreboard players set #constant.2 player_motion.internal.math 2
-    scoreboard players set #constant.4 player_motion.internal.math 4
-    scoreboard players set #constant.16 player_motion.internal.math 16
-    scoreboard players set #constant.100 player_motion.internal.math 100
-    scoreboard players set #constant.256 player_motion.internal.math 256
-    scoreboard players set #constant.1000 player_motion.internal.math 1000
-    scoreboard players set #constant.4096 player_motion.internal.math 4096
-    scoreboard players set #constant.65793 player_motion.internal.math 65793
+    scoreboard objectives add player_motion.internal.math.sqrt dummy
+scoreboard objectives add player_motion.internal.const dummy
+    scoreboard players set #constant.-1 player_motion.internal.const -1
+    scoreboard players set #constant.2 player_motion.internal.const 2
+    scoreboard players set #constant.10 player_motion.internal.const 10
+    scoreboard players set #constant.12 player_motion.internal.const 12
+    scoreboard players set #constant.1000 player_motion.internal.const 1000
+    scoreboard players set #constant.100 player_motion.internal.const 100
+    scoreboard players set #constant.fpc player_motion.internal.const 8000
 scoreboard objectives add player_motion.internal.motion.x dummy
 scoreboard objectives add player_motion.internal.motion.y dummy
 scoreboard objectives add player_motion.internal.motion.z dummy
-scoreboard objectives add player_motion.internal.uuid.0 dummy
-scoreboard objectives add player_motion.internal.uuid.1 dummy
-scoreboard objectives add player_motion.internal.uuid.2 dummy
-scoreboard objectives add player_motion.internal.uuid.3 dummy
-scoreboard objectives add player_motion.internal.id dummy
-scoreboard objectives add player_motion.internal.x dummy
-scoreboard objectives add player_motion.internal.y dummy
-scoreboard objectives add player_motion.internal.z dummy
-scoreboard objectives add player_motion.internal.blastprot.feet dummy
-scoreboard objectives add player_motion.internal.blastprot.legs dummy
-scoreboard objectives add player_motion.internal.blastprot.chest dummy
-scoreboard objectives add player_motion.internal.blastprot.head dummy
+scoreboard objectives add player_motion.internal.gamemode dummy
 
-
-#TEAMS
-team add player_motion.no_collide
-    team modify player_motion.no_collide collisionRule never
-
-
-#MARKERS
-forceload remove 0 0
+# FORCELOAD
 forceload add 0 0
-kill d59ee2c6-58c8-4885-b9db-ecff066e4439
-summon marker ~ ~ ~ {UUID: [I;-711007546,1489520773,-1176769281,107889721],Tags:["smithed.strict","smithed.entity"]}
 
-#STORAGE 
-data modify storage player_motion:macros rotation set value {"positive":0,"negative":0}
+# MARKER
+kill d4bd74a7-4e82-4a07-8850-dfc4d89f9e2f
+summon marker 0.0 0.0 0.0 {UUID:[I; -725781337, 1317161479, -2007965756, -660627921], Tags:["smithed.strict", "smithed.entity"]}
+
+
+# TRIG LOOKUP TABLE:
+function player_motion:internal/technical/trig

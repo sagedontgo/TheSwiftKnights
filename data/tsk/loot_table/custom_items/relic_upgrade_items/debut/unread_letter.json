@@ -1,0 +1,99 @@
+{
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:popped_chorus_fruit",
+					"weight": 100,
+					"functions": [
+						{
+							"function": "minecraft:set_name",
+							"entity": "this",
+							"target": "item_name",
+							"name": {
+								"text": "Unread Letter",
+								"color": "gray",
+								"italic": false
+							}
+						},
+						{
+							"function": "minecraft:set_lore",
+							"entity": "this",
+							"lore": [
+								{
+									"text": "\uEF0C",
+									"color": "white",
+									"italic": false,
+									"extra": [
+										{
+											"text": " Relic Upgrade Item",
+											"color": "dark_gray",
+											"italic": true
+										}
+									]
+								},
+								{
+									"text": "XP ",
+									"color": "aqua",
+									"italic": false,
+									"extra": [
+										{
+											"text": "50",
+											"color": "white",
+											"italic": false
+										}
+									]
+								},
+                                {
+									"text": "Upgrade Cost",
+									"color": "gold",
+									"italic": false,
+									"extra": [
+										{
+											"text": " 120",
+											"color": "white",
+											"italic": false
+										}
+									]
+								},
+								{
+									"text": ""
+								},
+								{
+									"text": "A dusty letter.",
+									"color": "gray",
+									"italic": false
+								},
+								{
+									"text": ""
+								},
+								{
+									"text": "\"But in a box beneath my bed,",
+									"color": "dark_gray",
+									"italic": true
+								},
+								{
+									"text": "is a letter that you never read.\"",
+									"color": "dark_gray",
+									"italic": true
+								},
+								{
+									"text": "- Tim McGraw",
+									"color": "dark_gray",
+									"italic": true
+								}
+							],
+							"mode": "replace_all"
+						},
+						{
+							"function": "minecraft:set_custom_data",
+							"tag": "{tsk:{item: \"upgradeItem\", upgradeXp: 50, upgradeCost: 120}}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

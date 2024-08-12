@@ -1,0 +1,32 @@
+[
+	{
+		"function": "minecraft:set_lore",
+		"entity": "this",
+		"lore": [
+			{
+				"text": "+",
+				"color":"white",
+				"extra": [
+					{
+						"score": {
+							"name": "$tsk.statBuffValue",
+							"objective": "tsk.randomVal"
+						},
+                        "color": "white"
+					},
+					{	
+						"text": " Mana Regen",
+						"color": "aqua"
+					}
+				]
+			}
+		],
+		"mode": "replace_section",
+		"offset": 2,
+		"size": 1
+	},
+	{
+		"function": "minecraft:set_custom_data",
+		"tag": "{tsk:{artifactMainStat:\"manaRegenFlat\"},tsk:{item:\"relic\"},tsk:{artifactType:\"amulet\"}}"
+	}
+]

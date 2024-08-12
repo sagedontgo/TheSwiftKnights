@@ -1,0 +1,99 @@
+{
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:popped_chorus_fruit",
+					"weight": 100,
+					"functions": [
+						{
+							"function": "minecraft:set_name",
+							"entity": "this",
+							"target": "item_name",
+							"name": {
+								"text": "Guitar",
+								"color": "aqua",
+								"italic": false
+							}
+						},
+						{
+							"function": "minecraft:set_lore",
+							"entity": "this",
+							"lore": [
+								{
+									"text": "\uEF0D",
+									"color": "white",
+									"italic": false,
+									"extra": [
+										{
+											"text": " Relic Upgrade Item",
+											"color": "dark_gray",
+											"italic": true
+										}
+									]
+								},
+								{
+									"text": "XP ",
+									"color": "aqua",
+									"italic": false,
+									"extra": [
+										{
+											"text": "150",
+											"color": "white",
+											"italic": false
+										}
+									]
+								},
+                                {
+									"text": "Upgrade Cost",
+									"color": "gold",
+									"italic": false,
+									"extra": [
+										{
+											"text": " 250",
+											"color": "white",
+											"italic": false
+										}
+									]
+								},
+								{
+									"text": ""
+								},
+								{
+									"text": "Filled with teardrops.",
+									"color": "gray",
+									"italic": false
+								},
+								{
+									"text": ""
+								},
+								{
+									"text": "\"He's the reason for the teardrops on my guitar,\"",
+									"color": "dark_gray",
+									"italic": true
+								},
+                                {
+									"text": "\"The only thing that keeps me wishing on a wishing star.\"",
+									"color": "dark_gray",
+									"italic": true
+								},
+								{
+									"text": "- Teardrops on my Guitar",
+									"color": "dark_gray",
+									"italic": true
+								}
+							],
+							"mode": "replace_all"
+						},
+						{
+							"function": "minecraft:set_custom_data",
+							"tag": "{tsk:{item: \"upgradeItem\", upgradeXp: 150, upgradeCost: 250}}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

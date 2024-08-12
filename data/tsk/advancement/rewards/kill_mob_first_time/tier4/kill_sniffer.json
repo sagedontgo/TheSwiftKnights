@@ -1,0 +1,15 @@
+{
+    "criteria": {
+        "": {
+            "trigger": "player_killed_entity",
+            "conditions": {
+                "entity": {
+                    "type": "minecraft:sniffer"
+                }
+            }
+        }
+    },
+    "rewards": {
+        "function": "tsk:advancements/rewards/kill_mob_first_time/tier4"
+    }
+}

@@ -1,0 +1,36 @@
+[
+	{
+		"function": "minecraft:set_lore",
+		"entity": "this",
+		"lore": [
+			{
+				"text": "+",
+				"color":"white",
+				"extra": [
+					{
+						"score": {
+							"name": "$tsk.statBuffValue",
+							"objective": "tsk.randomVal"
+						},
+                        "color": "white"
+					},
+					{
+						"text": "% ",
+						"color": "white"
+					},
+					{
+						"text":"Strength",
+						"color":"red"
+					}
+				]
+			}
+		],
+		"mode": "replace_section",
+		"offset": 2,
+		"size": 1
+	},
+	{
+		"function": "minecraft:set_custom_data",
+		"tag": "{tsk:{artifactMainStat:\"atkStrngthPercentage\"},tsk:{item:\"relic\"},tsk:{artifactType:\"talisman\"}}"
+	}
+]

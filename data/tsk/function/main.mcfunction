@@ -10,25 +10,37 @@ execute as @a if score @s tsk.maxHp <= @s tsk.hp run scoreboard players operatio
 execute as @a if score @s tsk.maxDef <= @s tsk.def run scoreboard players operation @s tsk.def = @s tsk.maxDef
 execute as @a if score @s tsk.maxHunger <= @s tsk.hungerBar run scoreboard players operation @s tsk.hungerBar = @s tsk.maxHunger
 execute as @a if score @s tsk.manaMax <= @s tsk.mana run scoreboard players operation @s tsk.mana = @s tsk.manaMax
+execute as @a run scoreboard players operation @s tsk.strBackup = @s tsk.str
+execute as @a if score @s tsk.mana matches ..0 run scoreboard players set @s tsk.mana 0
 
 ## Staff Functionality (tsk:staff)
-execute as @a[nbt={SelectedItem:{id:"minecraft:stick",count:1,components:{"minecraft:max_stack_size": 1, "minecraft:custom_data": {tsk: "staff"}}}},tag=!tsk.holdingStaff] at @s run function tsk:staff/equipped_staff
-execute as @a[nbt=!{SelectedItem:{id:"minecraft:stick",count:1,components:{"minecraft:max_stack_size": 1, "minecraft:custom_data": {tsk: "staff"}}}},tag=tsk.holdingStaff] at @s run function tsk:staff/unequipped_staff
+execute as @a[nbt={SelectedItem:{id:"minecraft:stick",count:1,components:{"minecraft:max_stack_size": 1, "minecraft:custom_data": {tsk:{item:"staff"}}}}},tag=!tsk.holdingStaff] at @s run function tsk:staff/equipped_staff
+execute as @a[nbt=!{SelectedItem:{id:"minecraft:stick",count:1,components:{"minecraft:max_stack_size": 1, "minecraft:custom_data": {tsk:{item:"staff"}}}}},tag=tsk.holdingStaff] at @s run function tsk:staff/unequipped_staff
 
 execute as @a[tag=tsk.holdingStaff] positioned ~ ~1.2 ~ at @s run tp @e[sort=nearest,limit=1,type=interaction,tag=tsk.staffInteraction] ~ ~1.2 ~
 execute as @a[tag=tsk.holdingGrimoire] positioned ~ ~1.2 ~ at @s run tp @e[sort=nearest,limit=1,type=interaction,tag=tsk.grimoireInteraction] ~ ~1.2 ~
 
-execute as @a[nbt={SelectedItem:{id:"minecraft:popped_chorus_fruit",count:1,components:{"minecraft:max_stack_size": 1, "minecraft:custom_data": {tsk: "grimoire"}}}},tag=!tsk.holdingGrimoire] at @s run function tsk:staff/grimoires/equipped_grimoire
-execute as @a[nbt=!{SelectedItem:{id:"minecraft:popped_chorus_fruit",count:1,components:{"minecraft:max_stack_size": 1, "minecraft:custom_data": {tsk: "grimoire"}}}},tag=tsk.holdingGrimoire] at @s run function tsk:staff/grimoires/unequipped_grimoire
-execute as @a[nbt={SelectedItem:{id:"minecraft:popped_chorus_fruit",count:1,components:{"minecraft:max_stack_size": 1, "minecraft:custom_data": {tsk: "grimoire"}}}},tag=tsk.holdingGrimoire] at @s run function tsk:staff/grimoires/particles
+execute as @a[nbt={SelectedItem:{id:"minecraft:popped_chorus_fruit",count:1,components:{"minecraft:max_stack_size": 1, "minecraft:custom_data": {tsk:{item:"grimoire"}}}}},tag=!tsk.holdingGrimoire] at @s run function tsk:staff/grimoires/equipped_grimoire
+execute as @a[nbt=!{SelectedItem:{id:"minecraft:popped_chorus_fruit",count:1,components:{"minecraft:max_stack_size": 1, "minecraft:custom_data": {tsk:{item:"grimoire"}}}}},tag=tsk.holdingGrimoire] at @s run function tsk:staff/grimoires/unequipped_grimoire
+execute as @a[nbt={SelectedItem:{id:"minecraft:popped_chorus_fruit",count:1,components:{"minecraft:max_stack_size": 1, "minecraft:custom_data": {tsk:{item:"grimoire"}}}}},tag=tsk.holdingGrimoire] at @s run function tsk:staff/grimoires/particles
 
 execute as @e[type=interaction,tag=tsk.grimoireInteraction] on target run function tsk:staff/grimoires/check
 
-execute as @a[tag=tsk.holdingStaff,scores={tsk.leftClick=3..}] run function tsk:staff/ability_check/riff_ability
-execute as @a[tag=tsk.holdingStaff,scores={tsk.rightClick=3..}] at @s run function tsk:staff/ability_check/shield_ability
+execute as @a[tag=tsk.holdingStaff,scores={tsk.leftClick=1..}] run function tsk:staff/ability_check/riff_ability
+execute as @a[tag=tsk.holdingStaff,scores={tsk.rightClick=1..}] at @s run function tsk:staff/ability_check/shield_ability
 execute as @a[tag=tsk.holdingStaff,predicate=tsk:is_sneaking,scores={tsk.leftClick=1..}] at @s run function tsk:staff/ability_check/anthem_ability
 execute as @a[tag=tsk.holdingStaff,predicate=tsk:is_sneaking,scores={tsk.rightClick=1..}] at @s run function tsk:staff/ability_check/trick_ability
 
+execute as @e[type=text_display,tag=tsk.clickIndicator] if score @s tsk.indicatorTimer matches 1.. run scoreboard players remove @s tsk.indicatorTimer 1
+execute as @e[type=text_display,tag=tsk.clickIndicator] unless score @s tsk.indicatorTimer matches 1.. run kill @s
+
+execute as @a[scores={tsk.leftClickTimer=1..}] run scoreboard players remove @s tsk.leftClickTimer 1
+execute as @a[scores={tsk.leftClickTimer=..1}] run function tsk:staff/reset_left_click
+execute as @a[scores={tsk.rightClickTimer=1..}] run scoreboard players remove @s tsk.rightClickTimer 1
+execute as @a[scores={tsk.rightClickTimer=..1}] run function tsk:staff/reset_right_click
+
+execute as @a[tag=tsk.castedAbility] if score @s tsk.abilityCooldownTimer matches 1.. run scoreboard players remove @s tsk.abilityCooldownTimer 1 
+execute as @a[tag=tsk.castedAbility] if score @s tsk.abilityCooldownTimer matches ..1 run function tsk:staff/reset_ability_cooldown
 
 ## HP System (tsk:hp)
 execute as @a[nbt=!{active_effects:[{id:"minecraft:resistance"}]}] run effect give @s resistance infinite 4 true
@@ -80,9 +92,10 @@ execute as @a[scores={tsk.digestionTimer=1..},tag=tsk.full] run scoreboard playe
 execute as @a[scores={tsk.digestionTimer=..1},tag=tsk.full] run function tsk:hp/hunger/digested
 
 # Death.
-execute as @a[scores={tsk.hp=..0}] at @s run function tsk:hp/death
+execute as @a[scores={tsk.hp=..0},tag=!tsk.died] at @s run function tsk:hp/death/roll
+execute as @a[scores={tsk.resRoll.animationTimer=1..}] at @s run function tsk:hp/death/loop
 execute as @e[type=text_display,tag=tsk.hpIndicator] unless predicate tsk:hp_display_riding run kill @s
-execute as @e[type=#tsk:all,scores={tsk.hp=..0}] at @s run function tsk:hp/mob_death
+execute as @e[type=#tsk:all,scores={tsk.hp=..0}] at @s run function tsk:hp/death/mob_death
 
 # Potions
 execute as @e[type=potion,nbt={Item:{id:"minecraft:splash_potion",count:1,components:{"minecraft:potion_contents":{potion:"minecraft:healing"}}}},tag=!tsk.healingPotionWithMarker] at @s run function tsk:hp/potion/healing/replace
@@ -122,7 +135,6 @@ execute as @a store success score @s tsk.dashReady run execute if entity @s[tag=
 execute as @a store success score @s tsk.jumpReady run execute if entity @s[tag=tsk.jumped]
 
 # Elemental Reactions
-
 
 # Apply
 execute as @e[type=!#tsk:exclude] if predicate tsk:elements/fire at @s run function tsk:elements/apply/fire
@@ -210,6 +222,25 @@ execute as @e[type=text_display,tag=tsk.reactionIndicator] as @s unless score @s
 execute as @e[type=text_display,tag=tsk.reactionIndicator] as @s if score @s tsk.indicatorTimer matches 1.. run scoreboard players remove @s tsk.indicatorTimer 1
 execute as @e[type=text_display,tag=tsk.reactionIndicator] as @s at @s if score @s tsk.indicatorTimer matches 18..20 run function tsk:elements/particles/end_reaction_text
 
-# Strength
-execute as @a at @s run function tsk:strength/calc_new_dmg
-execute as @a[advancements={tsk:crit/entity_hit=true},tag=tsk.hitCrit] at @s run function tsk:crit/reset
+# Relics
+execute as @a[nbt={SelectedItem:{id:"minecraft:popped_chorus_fruit",count:1,components:{"minecraft:max_stack_size": 1, "minecraft:custom_data": {tsk: "relicEditMode"}}}},tag=!tsk.holdingEditBook] at @s run function tsk:relics/edit_mode/equipped_edit_book
+execute as @a[nbt=!{SelectedItem:{id:"minecraft:popped_chorus_fruit",count:1,components:{"minecraft:max_stack_size": 1, "minecraft:custom_data": {tsk: "relicEditMode"}}}},tag=tsk.holdingEditBook] at @s run function tsk:relics/edit_mode/unequipped_edit_book
+execute as @e[type=interaction,tag=tsk.relicEditInteraction] on target at @s run function tsk:relics/edit_mode/check
+execute as @a[tag=tsk.holdingEditBook] positioned ~ ~1.2 ~ at @s run tp @e[sort=nearest,limit=1,type=interaction,tag=tsk.relicEditInteraction] ~ ~1.2 ~
+
+execute as @a[nbt={SelectedItem:{id:"minecraft:popped_chorus_fruit",components:{"minecraft:custom_data":{tsk:{artifactType:"charm",item:"relic",artifactMainStat:"empty"}}}}}] at @s run function tsk:relics/roll_stats/charm
+execute as @a[nbt={SelectedItem:{id:"minecraft:popped_chorus_fruit",components:{"minecraft:custom_data":{tsk:{artifactType:"amulet",item:"relic",artifactMainStat:"empty"}}}}}] at @s run function tsk:relics/roll_stats/amulet
+execute as @a[nbt={SelectedItem:{id:"minecraft:popped_chorus_fruit",components:{"minecraft:custom_data":{tsk:{artifactType:"talisman",item:"relic",artifactMainStat:"empty"}}}}}] at @s run function tsk:relics/roll_stats/talisman
+execute as @a[nbt={SelectedItem:{id:"minecraft:popped_chorus_fruit",components:{"minecraft:custom_data":{tsk:{artifactType:"tassel",item:"relic",artifactMainStat:"empty"}}}}}] at @s run function tsk:relics/roll_stats/tassel
+execute as @a[nbt={SelectedItem:{id:"minecraft:popped_chorus_fruit",components:{"minecraft:custom_data":{tsk:{artifactType:"necklace",item:"relic",artifactMainStat:"empty"}}}}}] at @s run function tsk:relics/roll_stats/necklace
+
+### THE KNIGHTS
+
+## KNIGHT1
+execute as @a[tag=tsk.knight1,tag=!tsk.abilityIsActive.tranquilTide] at @s if block ~ ~ ~ water run function tsk:ability_functions/knight1/passive
+execute as @a[tag=tsk.abilityIsActive.tranquilTide] at @s run function tsk:ability_functions/knight1/passive/tranquil_tide/loop
+execute as @a[tag=tsk.knight1,tag=!tsk.abilityIsActive.watersight] at @s if block ~ ~-1 ~ water if block ~ ~2 ~ water run function tsk:knights/knight1/passive/watersight
+execute as @a[tag=tsk.abilityIsActive.watersight] at @s unless block ~ ~-1 ~ water unless block ~ ~2 ~ water run function tsk:ability_functions/knight1/passive/watersight/stop
+execute as @a[tag=tsk.knight1,tag=!tsk.abilityIsActive.aquaAffinity] at @s if block ~ ~-1 ~ water if block ~ ~2 ~ water run function tsk:knights/knight1/passive/aqua_affinity
+execute as @a[tag=tsk.abilityIsActive.aquaAffinity] at @s unless block ~ ~-1 ~ water unless block ~ ~2 ~ water run function tsk:ability_functions/knight1/passive/aqua_affinity/stop
+

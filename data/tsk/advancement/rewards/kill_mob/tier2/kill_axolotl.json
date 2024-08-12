@@ -1,0 +1,15 @@
+{
+    "criteria": {
+        "": {
+            "trigger": "minecraft:player_killed_entity",
+            "conditions": {
+                "entity": {
+                    "type": "minecraft:axolotl"
+                }
+            }
+        }
+    },
+    "rewards": {
+        "function": "tsk:advancements/rewards/kill_mob/tier2"
+    }
+}

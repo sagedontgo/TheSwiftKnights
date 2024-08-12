@@ -1,0 +1,32 @@
+[
+	{
+		"function": "minecraft:set_lore",
+		"entity": "this",
+		"lore": [
+			{
+				"text": "+",
+				"color":"white",
+				"extra": [
+					{
+						"score": {
+							"name": "$tsk.statBuffValue",
+							"objective": "tsk.randomVal"
+						},
+                        "color": "white"
+					},
+					{	
+						"text": " Stomach Capacity",
+						"color": "gold"
+					}
+				]
+			}
+		],
+		"mode": "replace_section",
+		"offset": 2,
+		"size": 1
+	},
+	{
+		"function": "minecraft:set_custom_data",
+		"tag": "{tsk:{artifactMainStat:\"scFlat\"},tsk:{item:\"relic\"},tsk:{artifactType:\"charm\"}}"
+	}
+]

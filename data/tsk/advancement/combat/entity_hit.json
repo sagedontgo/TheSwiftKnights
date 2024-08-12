@@ -3,16 +3,19 @@
 		"requirement": {
 			"trigger": "minecraft:player_hurt_entity",
 			"conditions": {
-				"damage": {
-					"type": {
-						"is_direct": true
+				"entity": [
+					{
+						"condition": "minecraft:entity_properties",
+						"entity": "this",
+						"predicate": {
+							"type": "#tsk:all"
+						}
 					}
-				}
+				]
 			}
 		}
 	},
-    "rewards":
-    {
-        "function": "tsk:combat/hit"
-    }
+	"rewards": {
+		"function": "tsk:combat/hit"
+	}
 }

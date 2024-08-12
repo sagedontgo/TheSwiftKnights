@@ -1,0 +1,1 @@
+give @s iron_ingot[custom_data={tsk:{item:"upgradeItem",upgradeCost:240,upgradeXp:50}}]
