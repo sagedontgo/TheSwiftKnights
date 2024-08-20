@@ -74,6 +74,10 @@
         "#wall_signs",
         "scaffolding",
         "sculk_vein",
-        "frogspawn"
+        "frogspawn",
+        "#slabs",
+        "#fence_gates",
+        "#fences",
+        "#trapdoors"
     ]
 }

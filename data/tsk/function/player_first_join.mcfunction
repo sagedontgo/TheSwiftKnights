@@ -24,6 +24,11 @@ scoreboard players set @s tsk.constitution 12
 scoreboard players set @s tsk.gold 0
 scoreboard players set @s tsk.silver 0 
 scoreboard players set @s tsk.strMax 50
+scoreboard players set @s tsk.luck 12
+scoreboard players set @s tsk.combatMastery 5
+scoreboard players set @s tsk.dashChargeNeeded 50
+scoreboard players set @s tsk.jumpChargeNeeded 100
+scoreboard players set @s tsk.meleeAbilityChargeNeeded 150
 scoreboard players set $level tsk.worldLevel 1
 execute as @s run function tsk:crit/damage/calculate_crit_damage
 execute positioned 1 318 1 as @s run function ajjgui:_portself {id:"tsk.modifyRelic"}

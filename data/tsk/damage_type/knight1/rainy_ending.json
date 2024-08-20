@@ -1,7 +1,0 @@
-{
-	"message_id": "tsk.ability_damage.knight1.rainy_ending",
-	"exhaustion": 0,
-	"scaling": "when_caused_by_living_non_player",
-	"effects": "drowning",
-	"death_message_type": "default"
-}

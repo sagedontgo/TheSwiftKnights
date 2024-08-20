@@ -1,0 +1,7 @@
+{
+	"message_id": "tsk.death_message.dash",
+	"exhaustion": 0,
+	"scaling": "when_caused_by_living_non_player",
+	"effects": "thorns",
+	"death_message_type": "default"
+}

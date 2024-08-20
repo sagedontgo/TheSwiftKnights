@@ -6,6 +6,9 @@ forceload add 0 0 16 16
 ## ID 
 scoreboard objectives add tsk.id dummy
 
+### LUCK 
+scoreboard objectives add tsk.luck dummy
+
 ## HP
 scoreboard objectives add tsk.lastTickHp dummy
 scoreboard objectives add tsk.hpDiff dummy
@@ -72,6 +75,22 @@ scoreboard objectives add tsk.combatTimer dummy
 scoreboard objectives add tsk.dashReady dummy
 scoreboard objectives add tsk.jumpReady dummy
 
+scoreboard objectives add tsk.dashCooldown dummy
+
+scoreboard objectives add tsk.dashChargePercentActionbarVal dummy
+scoreboard objectives add tsk.jumpChargePercentActionbarVal dummy
+
+scoreboard objectives add tsk.totalCharge dummy
+scoreboard objectives add tsk.dashChargePercentages dummy
+
+scoreboard objectives add tsk.dashChargeNeeded dummy
+scoreboard objectives add tsk.jumpChargeNeeded dummy
+
+scoreboard objectives add tsk.dashCharge dummy
+scoreboard objectives add tsk.jumpCharge dummy
+
+scoreboard objectives add tsk.combatMastery dummy
+
 # ELEMENTAL REACTIONS
 ## TIMER
 scoreboard objectives add tsk.elementTimer.air dummy
@@ -101,14 +120,20 @@ scoreboard objectives add tsk.elementIsActive.water dummy
 # VARIABLES
 ## INTEGERS
 scoreboard objectives add tsk.int dummy
+scoreboard players set $-1 tsk.int -1
 scoreboard players set $1 tsk.int 1
 scoreboard players set $2 tsk.int 2
 scoreboard players set $4 tsk.int 4
 scoreboard players set $10 tsk.int 10
+scoreboard players set $12 tsk.int 12
+scoreboard players set $15 tsk.int 15
 scoreboard players set $20 tsk.int 20
+scoreboard players set $25 tsk.int 25
 scoreboard players set $50 tsk.int 50
+scoreboard players set $75 tsk.int 75
 scoreboard players set $100 tsk.int 100
 scoreboard players set $120 tsk.int 120
+scoreboard players set $150 tsk.int 150
 scoreboard players set $1000 tsk.int 1000
 scoreboard players set $10000 tsk.int 10000
 scoreboard players set $100000 tsk.int 100000
@@ -134,6 +159,8 @@ scoreboard players set $tier5 tsk.tierBaseHp 55
 scoreboard players set $tier6 tsk.tierBaseHp 56
 scoreboard players set $tier7 tsk.tierBaseHp 90
 
+
+
 ### PERCENTAGES
 scoreboard objectives add tsk.percentageValue dummy
 scoreboard objectives add tsk.getPercentageOf dummy
@@ -156,6 +183,7 @@ scoreboard objectives add tsk.tempCritDmg dummy
 scoreboard objectives add tsk.hpBackup dummy
 scoreboard objectives add tsk.strBackup dummy
 scoreboard objectives add tsk.defBackup dummy
+scoreboard objectives add tsk.abilityDamage dummy
 
 
 # TIMERS
@@ -174,6 +202,8 @@ scoreboard objectives add tsk.jumpCount minecraft.custom:minecraft.jump
 scoreboard objectives add tsk.leftGame minecraft.custom:minecraft.leave_game
 scoreboard objectives add tsk.animationFrames dummy
 scoreboard objectives add tsk.bool dummy
+scoreboard objectives add tsk.actionbarTimer dummy
+scoreboard objectives add tsk.holdingRightClick dummy
 
 ## STAFF STUFF
 scoreboard objectives add tsk.clickCount dummy
@@ -186,6 +216,7 @@ scoreboard objectives add tsk.rightClickTimer dummy
 ## RAYCASTING 
 scoreboard objectives add tsk.raySteps dummy
 scoreboard objectives add tsk.raySuccess dummy
+scoreboard objectives add tsk.rayClock dummy
 scoreboard objectives add tsk.castTemp dummy
 
 ## CURRENCY
@@ -391,6 +422,29 @@ scoreboard objectives add tsk.relicTemp.sub4 dummy
 
 ## ABILITY TIMERS
 scoreboard objectives add tsk.abilityTimer.tranquilTide dummy
+scoreboard objectives add tsk.abilityTimer.tidalWave dummy
+scoreboard objectives add tsk.abilityTimer.highTide dummy
+scoreboard objectives add tsk.abilityTimer.teardropBlade dummy
 
 ## MATH 
 scoreboard objectives add tsk.math dummy
+
+### RARE DROPS 
+scoreboard objectives add tsk.brokeBlock.obsidian minecraft.mined:minecraft.obsidian
+scoreboard objectives add tsk.brokeBlock.cryingObsidian minecraft.mined:minecraft.crying_obsidian
+
+scoreboard objectives add tsk.brokeBlock.deepslateCoalOre minecraft.mined:minecraft.deepslate_coal_ore
+scoreboard objectives add tsk.brokeBlock.crimsonNylium minecraft.mined:minecraft.crimson_nylium
+scoreboard objectives add tsk.brokeBlock.deepslateRedstoneOre minecraft.mined:minecraft.deepslate_redstone_ore
+
+scoreboard objectives add tsk.brokeBlock.diamondOre minecraft.mined:minecraft.diamond_ore
+scoreboard objectives add tsk.brokeBlock.deepslateDiamondOre minecraft.mined:minecraft.deepslate_diamond_ore
+
+scoreboard objectives add tsk.brokeBlock.deepslateLapisOre minecraft.mined:minecraft.deepslate_lapis_ore
+scoreboard objectives add tsk.brokeBlock.lapisOre minecraft.mined:minecraft.lapis_ore
+
+scoreboard objectives add tsk.brokeBlock.redSandstone minecraft.mined:minecraft.red_sandstone
+scoreboard objectives add tsk.brokeBlock.magmaBlock minecraft.mined:minecraft.magma_block
+
+scoreboard objectives add tsk.brokeBlock.emeraldOre minecraft.mined:minecraft.emerald_ore
+scoreboard objectives add tsk.brokeBlock.deepslateEmeraldOre minecraft.mined:minecraft.deepslate_emerald_ore

@@ -1,0 +1,81 @@
+{
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:popped_chorus_fruit",
+					"weight": 100,
+					"functions": [
+						{
+							"function": "minecraft:set_name",
+							"entity": "this",
+							"target": "item_name",
+							"name": {
+								"text": "Blue Opal",
+								"color": "aqua",
+								"italic": false
+							}
+						},
+						{
+							"function": "minecraft:set_lore",
+							"entity": "this",
+							"lore": [
+								{
+									"text": "\uEF0E",
+									"color": "white",
+									"italic": false,
+									"extra": [
+										{
+											"text": " Relic Upgrade Item",
+											"color": "dark_gray",
+											"italic": true
+										}
+									]
+								},
+								{
+									"text": "XP ",
+									"color": "aqua",
+									"italic": false,
+									"extra": [
+										{
+											"text": "150",
+											"color": "white",
+											"italic": false
+										}
+									]
+								},
+                                {
+									"text": "Upgrade Cost",
+									"color": "gold",
+									"italic": false,
+									"extra": [
+										{
+											"text": " 0",
+											"color": "white",
+											"italic": false
+										}
+									]
+								},
+								{
+									"text": ""
+								},
+								{
+									"text": "Opal.",
+									"color": "gray",
+									"italic": false
+								}
+							],
+							"mode": "replace_all"
+						},
+						{
+							"function": "minecraft:set_custom_data",
+							"tag": "{tsk:{item: \"upgradeItem\", upgradeXp: 150, upgradeCost: 0}}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

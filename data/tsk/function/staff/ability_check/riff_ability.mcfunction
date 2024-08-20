@@ -1,4 +1,6 @@
 execute as @s at @s if entity @s[tag=tsk.knight1,nbt={SelectedItem:{id:"minecraft:stick",components:{"minecraft:max_stack_size":1,"minecraft:custom_data":{tsk:{item:"staff",riffAbility:"tidalWave"}}}}},scores={tsk.mana=40..}] run function tsk:knights/knight1/riffs/tidal_wave
+execute as @s at @s if entity @s[tag=tsk.knight1,nbt={SelectedItem:{id:"minecraft:stick",components:{"minecraft:max_stack_size":1,"minecraft:custom_data":{tsk:{item:"staff",riffAbility:"highTide"}}}}},scores={tsk.mana=40..}] run function tsk:knights/knight1/riffs/high_tide
+execute as @s at @s if entity @s[tag=tsk.knight1,nbt={SelectedItem:{id:"minecraft:stick",components:{"minecraft:max_stack_size":1,"minecraft:custom_data":{tsk:{item:"staff",riffAbility:"teardropBlade"}}}}},scores={tsk.mana=40..}] run function tsk:knights/knight1/riffs/teardrop_blade
 
 
 

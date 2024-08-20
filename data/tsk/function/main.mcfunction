@@ -3,9 +3,11 @@ execute as @a[tag=!tsk.joined] run function tsk:player_first_join
 
 # Actionbar
 function tsk:display_proper_actionbar
+# execute as @a[tag=tsk.hiddenActionbar] if score @s tsk.actionbarTimer matches 1.. run scoreboard players remove @s tsk.actionbarTimer 1
+# execute as @a[tag=tsk.hiddenActionbar] if score @s tsk.actionbarTimer matches ..1 run tag @s remove tsk.hiddenActionbar
 
 
-# Avoid scoreboard overflow
+# Avoid scoreboard overflow 
 execute as @a if score @s tsk.maxHp <= @s tsk.hp run scoreboard players operation @s tsk.hp = @s tsk.maxHp
 execute as @a if score @s tsk.maxDef <= @s tsk.def run scoreboard players operation @s tsk.def = @s tsk.maxDef
 execute as @a if score @s tsk.maxHunger <= @s tsk.hungerBar run scoreboard players operation @s tsk.hungerBar = @s tsk.maxHunger
@@ -127,12 +129,7 @@ execute as @a if score @s tsk.manaRegenTimer matches ..1 as @s run function tsk:
 execute as @a[tag=tsk.regeneratingMana] if score @s tsk.mana >= @s tsk.manaMax run function tsk:mana/stop
 
 # Combat
-execute as @a[tag=tsk.dashReady] at @s if predicate tsk:is_sneaking run function tsk:combat/dash
-execute as @a[tag=tsk.jumped] if score @s tsk.jumpCount matches 1.. if predicate tsk:is_on_ground at @s as @e[sort=nearest,distance=0.01..3] at @s run function tsk:combat/jump_hit with storage tsk:attribute attribute
-execute as @a[tag=tsk.jumped] if score @s tsk.jumpCount matches 1.. if predicate tsk:is_on_ground at @s run function tsk:combat/used_jump
-execute as @a[tag=!tsk.jumped,scores={tsk.jumpCount=1..}] run scoreboard players reset @s tsk.jumpCount
-execute as @a store success score @s tsk.dashReady run execute if entity @s[tag=tsk.dashReady]
-execute as @a store success score @s tsk.jumpReady run execute if entity @s[tag=tsk.jumped]
+execute as @a[tag=tsk.dashReady] at @s if predicate tsk:is_sneaking run function tsk:combat/dash/dash
 
 # Elemental Reactions
 
@@ -234,13 +231,57 @@ execute as @a[nbt={SelectedItem:{id:"minecraft:popped_chorus_fruit",components:{
 execute as @a[nbt={SelectedItem:{id:"minecraft:popped_chorus_fruit",components:{"minecraft:custom_data":{tsk:{artifactType:"tassel",item:"relic",artifactMainStat:"empty"}}}}}] at @s run function tsk:relics/roll_stats/tassel
 execute as @a[nbt={SelectedItem:{id:"minecraft:popped_chorus_fruit",components:{"minecraft:custom_data":{tsk:{artifactType:"necklace",item:"relic",artifactMainStat:"empty"}}}}}] at @s run function tsk:relics/roll_stats/necklace
 
+### MISC
+# execute as @e[type=shulker,tag=tsk.blockHighlight] if score @s tsk.blockHighlightTimer matches 1.. run scoreboard players remove @s tsk.blockHighlightTimer 1
+# execute as @e[type=shulker,tag=tsk.blockHighlight] if score @s tsk.blockHighlightTimer matches ..3 run tp @s ~ ~-99 ~
+# execute as @e[type=shulker,tag=tsk.blockHighlight] if score @s tsk.blockHighlightTimer matches ..1 run kill @s
+
+### RARE DROPS 
+execute as @a[scores={tsk.brokeBlock.deepslateCoalOre=1..}] at @s run function tsk:rare_drops/black_opal/deepslate_coal_ore/roll
+execute as @a[scores={tsk.brokeBlock.obsidian=1..}] at @s run function tsk:rare_drops/black_opal/obsidian/roll
+
+execute as @a[scores={tsk.brokeBlock.deepslateRedstoneOre=1..}] at @s run function tsk:rare_drops/blood_red_moonstone/deepslate_redstone_ore/roll
+execute as @a[scores={tsk.brokeBlock.crimsonNylium=1..}] at @s run function tsk:rare_drops/blood_red_moonstone/crimson_nylium/roll
+
+execute as @a[scores={tsk.brokeBlock.deepslateDiamondOre=1..}] at @s run function tsk:rare_drops/blue_moonstone/deepslate_diamond_ore/roll
+execute as @a[scores={tsk.brokeBlock.diamondOre=1..}] at @s run function tsk:rare_drops/blue_moonstone/diamond_ore/roll
+
+execute as @a[scores={tsk.brokeBlock.lapisOre=1..}] at @s run function tsk:rare_drops/blue_opal/lapis_ore/roll
+execute as @a[scores={tsk.brokeBlock.deepslateLapisOre=1..}] at @s run function tsk:rare_drops/blue_opal/deepslate_lapis_ore/roll
+
+execute as @a[scores={tsk.brokeBlock.magmaBlock=1..}] at @s run function tsk:rare_drops/fire_opal/magma_block/roll
+execute as @a[scores={tsk.brokeBlock.redSandstone=1..}] at @s run function tsk:rare_drops/fire_opal/red_sandstone/roll
+
+execute as @a[scores={tsk.brokeBlock.emeraldOre=1..}] at @s run function tsk:rare_drops/imperial_jade/drop
+execute as @a[scores={tsk.brokeBlock.deepslateEmeraldOre=1..}] at @s run function tsk:rare_drops/imperial_jade/drop
+
+
 ### THE KNIGHTS
 
 ## KNIGHT1
-execute as @a[tag=tsk.knight1,tag=!tsk.abilityIsActive.tranquilTide] at @s if block ~ ~ ~ water run function tsk:ability_functions/knight1/passive
+execute as @a[tag=tsk.knight1,tag=!tsk.abilityIsActive.tranquilTide] at @s if block ~ ~ ~ water run function tsk:ability_functions/knight1/passive/tranquil_tide/regenerate
 execute as @a[tag=tsk.abilityIsActive.tranquilTide] at @s run function tsk:ability_functions/knight1/passive/tranquil_tide/loop
 execute as @a[tag=tsk.knight1,tag=!tsk.abilityIsActive.watersight] at @s if block ~ ~-1 ~ water if block ~ ~2 ~ water run function tsk:knights/knight1/passive/watersight
 execute as @a[tag=tsk.abilityIsActive.watersight] at @s unless block ~ ~-1 ~ water unless block ~ ~2 ~ water run function tsk:ability_functions/knight1/passive/watersight/stop
 execute as @a[tag=tsk.knight1,tag=!tsk.abilityIsActive.aquaAffinity] at @s if block ~ ~-1 ~ water if block ~ ~2 ~ water run function tsk:knights/knight1/passive/aqua_affinity
 execute as @a[tag=tsk.abilityIsActive.aquaAffinity] at @s unless block ~ ~-1 ~ water unless block ~ ~2 ~ water run function tsk:ability_functions/knight1/passive/aqua_affinity/stop
 
+# Tidal Wave
+execute as @a[tag=tsk.knight1,tag=tsk.castedAbility.tidalWave] at @s if score @s tsk.abilityTimer.tidalWave matches 1.. run function tsk:ability_functions/knight1/riffs/tidal_wave/loop
+execute as @e[type=!#tsk:exclude,tag=tsk.hitBy.tidalWave] at @s if score @s tsk.abilityTimer.tidalWave matches 1.. run function tsk:ability_functions/knight1/riffs/tidal_wave/loop
+
+# High Tide
+execute as @a[tag=tsk.knight1,tag=tsk.castedAbility.highTide] at @s if score @s tsk.abilityTimer.highTide matches 1.. run function tsk:ability_functions/knight1/riffs/high_tide/loop
+execute as @e[tag=tsk.ability.highTide,type=armor_stand] at @s if score @s tsk.abilityTimer.highTide matches 1.. run function tsk:ability_functions/knight1/riffs/high_tide/loop
+execute as @e[tag=tsk.rayMarker.highTide,type=armor_stand] at @s if score @s tsk.abilityTimer.highTide matches 1.. run function tsk:ability_functions/knight1/riffs/high_tide/loop
+execute as @e[tag=tsk.tpAnchor.highTide,type=marker] at @s if score @s tsk.abilityTimer.highTide matches 1.. run function tsk:ability_functions/knight1/riffs/high_tide/loop
+execute as @e[tag=tsk.ability.highTide,type=item_display] at @s if score @s tsk.abilityTimer.highTide matches 1.. run function tsk:ability_functions/knight1/riffs/high_tide/loop
+execute as @e[tag=tsk.hitBy.highTide] at @s run function tsk:ability_functions/knight1/riffs/high_tide/loop
+execute as @e[type=armor_stand,tag=tsk.rayMarker.highTide,tag=tsk.facingNorth] if score @s tsk.raySteps matches 1.. if score @s tsk.raySuccess matches 0 at @s run function tsk:ability_functions/knight1/riffs/high_tide/raycast/north/ray
+execute as @e[type=armor_stand,tag=tsk.rayMarker.highTide,tag=tsk.facingEast] if score @s tsk.raySteps matches 1.. if score @s tsk.raySuccess matches 0 at @s run function tsk:ability_functions/knight1/riffs/high_tide/raycast/east/ray
+execute as @e[type=armor_stand,tag=tsk.rayMarker.highTide,tag=tsk.facingSouth] if score @s tsk.raySteps matches 1.. if score @s tsk.raySuccess matches 0 at @s run function tsk:ability_functions/knight1/riffs/high_tide/raycast/south/ray
+execute as @e[type=armor_stand,tag=tsk.rayMarker.highTide,tag=tsk.facingWest] if score @s tsk.raySteps matches 1.. if score @s tsk.raySuccess matches 0 at @s run function tsk:ability_functions/knight1/riffs/high_tide/raycast/west/ray
+
+# Teardrop Blade
+execute as @a[tag=tsk.knight1,tag=tsk.castedAbility.teardropBlade] at @s if score @s tsk.abilityTimer.teardropBlade matches 1.. run function tsk:ability_functions/knight1/riffs/teardrop_blade/loop
+execute as @e[type=!#tsk:exclude,tag=tsk.hitBy.teardropBlade] at @s if score @s tsk.abilityTimer.teardropBlade matches 1.. run function tsk:ability_functions/knight1/riffs/teardrop_blade/loop

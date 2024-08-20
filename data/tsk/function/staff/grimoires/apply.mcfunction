@@ -1,5 +1,7 @@
 ## KNIGHT 1
 execute as @s if entity @s[nbt={SelectedItem:{id:"minecraft:popped_chorus_fruit",components:{"minecraft:custom_data":{tsk:{item:"grimoire",riffAbility:"tidalWave"}},"minecraft:max_stack_size":1}}}] run item modify entity @s weapon.offhand tsk:grimoires/knight1/riffs/tidal_wave
+execute as @s if entity @s[nbt={SelectedItem:{id:"minecraft:popped_chorus_fruit",components:{"minecraft:custom_data":{tsk:{item:"grimoire",riffAbility:"highTide"}},"minecraft:max_stack_size":1}}}] run item modify entity @s weapon.offhand tsk:grimoires/knight1/riffs/high_tide
+execute as @s if entity @s[nbt={SelectedItem:{id:"minecraft:popped_chorus_fruit",components:{"minecraft:custom_data":{tsk:{item:"grimoire",riffAbility:"teardropBlade"}},"minecraft:max_stack_size":1}}}] run item modify entity @s weapon.offhand tsk:grimoires/knight1/riffs/teardrop_blade
 
 
 

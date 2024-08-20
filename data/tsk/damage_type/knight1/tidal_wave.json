@@ -1,5 +1,5 @@
 {
-	"message_id": "tsk.ability_damage.knight1.tidal_wave",
+	"message_id": "tsk.death_message.knight1.tidal_wave",
 	"exhaustion": 0,
 	"scaling": "when_caused_by_living_non_player",
 	"effects": "drowning",
